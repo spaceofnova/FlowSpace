@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en" data-theme="forest">
+  <head>
+    <script src="js/jquery.js"></script>
+    <script
+      src="https://kit.fontawesome.com/dad218034c.js"
+      crossorigin="anonymous"
+    ></script>
+    <link id="css" rel="stylesheet" href="css/style.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slope</title>
+  </head>
+  <body data-theme="">
+    <nav>
+      <div id="user">
+        <img id="uIcon" alt="User Icon" />
+      </div>
+      <div id="buttons">
+        <button onclick="swup.navigate('/');">
+          <i class="fa-solid fa-house fa-xl"></i>
+        </button>
+        <button onclick="swup.navigate('/apps');">
+          <i class="fa-solid fa-gamepad fa-xl"></i>
+        </button>
+        <button onclick="swup.navigate('/about');">
+          <i class="fa-solid fa-address-book fa-xl"></i>
+        </button>
+      </div>
+      <button onclick="swup.navigate('/settings');">
+        <i class="fa-solid fa-sliders fa-xl"></i>
+      </button>
+    </nav>
+    <main id="swup" class="transition-main">
+      <div id="page-applaunch"></div>
+      <div class="app">
+        <h4 id="appTitle">Loading game..</h4>
+        <iframe id="appFrame" src="">Loading..</iframe>
+      </div>
+      <noscript>Javascript is required to use this website.</noscript>
+    </main>
+    <script src="https://unpkg.com/swup@4"></script>
+    <script>
+      const swup = new Swup();
+    </script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="js/index.js" type="module"></script>
+  </body>
+</html>

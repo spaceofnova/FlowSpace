@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en" data-theme="forest">
+  <head>
+    <script src="js/jquery.js"></script>
+    <script
+      src="https://kit.fontawesome.com/dad218034c.js"
+      crossorigin="anonymous"
+    ></script>
+    <link id="css" rel="stylesheet" href="css/style.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+  </head>
+  <body data-theme="">
+    <nav>
+      <div id="user">
+        <img id="uIcon" alt="User Icon" />
+      </div>
+      <div id="buttons">
+        <button onclick="swup.navigate('/');">
+          <i class="fa-solid fa-house fa-xl"></i>
+        </button>
+        <button onclick="swup.navigate('/apps');">
+          <i class="fa-solid fa-gamepad fa-xl"></i>
+        </button>
+        <button onclick="swup.navigate('/about');">
+          <i class="fa-solid fa-address-book fa-xl"></i>
+        </button>
+      </div>
+      <button onclick="swup.navigate('/settings');">
+        <i class="fa-solid fa-sliders fa-xl"></i>
+      </button>
+    </nav>
+    <main id="swup" class="transition-main">
+      <div id="page-settings"></div>
+      <div>
+        <h2>Settings</h2>
+
+        <div id="accountArea">
+          <h4>Account</h4>
+          <div id="accountError"></div>
+          <div id="accountSettings">
+            Current User Name: <input id="accountName" type="text" />
+            <br />
+            Currrent User Profile Picture: <input id="accountPfp" type="text" />
+            <br />
+            <button id="accountSave">Save</button>
+            <br />
+            To reset your password, contact the owner of this website.
+          </div>
+        </div>
+      </div>
+      <div id="themeArea">
+        <h4>Themes</h4>
+        <div id="themeChooser">
+          <button class="themeBtn" id="default">Default</button>
+          <button class="themeBtn" id="blueberry">Dessert Blueberry</button>
+          <button class="themeBtn" id="pumpkin">Pumpkin</button>
+          <button class="themeBtn" id="lavender">Lavender</button>
+          <button class="themeBtn" id="emerald">Emerald</button>
+          <button class="themeBtn" id="bola">Bola</button>
+          <button class="themeBtn" id="ocean">Ocean</button>
+          <button class="themeBtn" id="cozy">Cozy</button>
+          <!-- <button disabled class="themeBtn" id="custom"></button> -->
+        </div>
+      </div>
+
+      <h4>Privacy</h4>
+      <noscript>Javascript is required to use this website.</noscript>
+    </main>
+    <script src="https://unpkg.com/swup@4"></script>
+    <script>
+      const swup = new Swup();
+    </script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="js/index.js" type="module"></script>
+  </body>
+</html>
