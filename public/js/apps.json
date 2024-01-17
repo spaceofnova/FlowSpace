@@ -2,13 +2,13 @@
   {
     "id": "gmCxvcxsDxjwbTAM",
     "name": "Slope",
-    "icon": "slope_icon.png",
+    "icon": "/pngs/slope.jpeg",
     "url": "https://novaGamez.replit.app/slope/index.html"
   },
   {
     "id": "pCU0YbsxjG7L5wMe",
     "name": "Cookie Clicker",
-    "icon": "cookie_clicker_icon.png",
+    "icon": "/pngs/cookie_clicker.jpg",
     "url": "https://novaGamez.replit.app/cookieclicker/index.html"
   }
 ]

@@ -63,13 +63,18 @@ function jsAppsPage() {
     .then((response) => response.json())
     .then((games) => {
       games.forEach((game) => {
-        const gameElement = document.createElement("button");
-        gameElement.innerText = game.name;
-        gameElement.style.backgroundImage = `url(${game.icon})`;
-        gameElement.dataset.id = game.id; // Store the ID
-        gameElement.onclick = () => {
-          swup.navigate(`/app?id=${gameElement.dataset.id}`);
-        };
+        console.log(game);
+        var gameElement = $("<div></div>").addClass("gameElement");
+        var gameIcon = $("<img>").attr("src", game.icon).addClass("gameIcon");
+        gameElement.append(gameIcon);
+        var gameOpt = $("<div></div>").addClass("gameOpt");
+        var gameName = $("<div></div>").addClass("gameName").text(game.name);
+        var gamePlay = $("<button>Play</button>").addClass("gamePlay");
+        $(gamePlay).on("click", function () {
+          swup.navigate(`/app?id=${game.id}`);
+        });
+        gameOpt.append(gameName).append(gamePlay);
+        gameElement.append(gameOpt);
         $(".applist").append(gameElement);
       });
     });

@@ -33,9 +33,15 @@
       </button>
     </nav>
     <main id="swup" class="transition-main">
-      <div id="page-applaunch"></div>
+      <div id="page-applaunch" class="blank"></div>
+      <a
+        style="position: fixed; top: 10px; left: 20px"
+        id="appback"
+        href="/apps"
+        ><i class="fa-solid fa-arrow-left"></i> Back to Apps page</a
+      >
       <div class="app">
-        <h4 id="appTitle">Loading game..</h4>
+        <p id="appTitle">Loading game..</p>
         <iframe id="appFrame" src="">Loading..</iframe>
       </div>
       <noscript>Javascript is required to use this website.</noscript>
