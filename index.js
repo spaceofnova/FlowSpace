@@ -1,9 +1,6 @@
 const express = require("express");
 const path = require("path");
 const app = express();
-const Database = require("@replit/database");
-
-const db = new Database();
 
 app.use(express.static("public"));
 
@@ -25,9 +22,7 @@ app.get("/settings", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "pages/settings.html"));
 });
 
-app.listen(3000, () => {
-  console.log("Server is running on port 3000");
-});
+
 
 const { auth } = require("express-openid-connect");
 
@@ -54,4 +49,13 @@ app.get("/user/getinfo", requiresAuth(), (req, res) => {
     id: req.oidc.user.sid,
   };
   res.send(user);
+});
+
+
+app.get('*', function(req, res){
+  res.status(404).sendFile(path.join(__dirname, "public", "pages/404.html"));
+});
+
+app.listen(3000, () => {
+  console.log("Server is running on port 3000");
 });

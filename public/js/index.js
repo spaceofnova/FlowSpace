@@ -5,21 +5,6 @@ function refreshPageTheme() {
   );
 }
 
-function jsSettingsPage() {
-  $(".themeBtn").on("click", function () {
-    window.localStorage.setItem("theme", $(this).attr("id"));
-    document.documentElement.setAttribute("data-theme", $(this).attr("id"));
-  });
-  var userid = window.localStorage.getItem("userid");
-  if (userid == null) {
-    $("#accountError").html(
-      "Account info only available with accounts through auth0. to learn more, visit the<a href='https://flowspace.app/about/#FAQ'>FAQ</a>",
-    );
-    $("#accountSettings").remove();
-  } else {
-  }
-}
-
 refreshPageTheme();
 $(document).ready(function () {
   function getInfo() {
@@ -30,6 +15,7 @@ $(document).ready(function () {
       success: function (data) {
         $("#username").text(data.name);
         $("#uIcon").attr("src", data.picture);
+        if (data.id == "")
         window.localStorage.setItem("userid", JSON.stringify(data.id));
       },
       error: function () {
@@ -40,6 +26,7 @@ $(document).ready(function () {
           .on("click", function () {
             window.location.href = "/login";
           });
+        window.localStorage.setItem("userid", "notLoggedIn");
       },
     });
   }
@@ -57,6 +44,21 @@ $(document).ready(function () {
       "Stay safe online! ",
   );
 });
+
+function jsSettingsPage() {
+  $(".themeBtn").on("click", function () {
+    window.localStorage.setItem("theme", $(this).attr("id"));
+    document.documentElement.setAttribute("data-theme", $(this).attr("id"));
+  });
+  var userid = window.localStorage.getItem("userid");
+  if (userid == "none") {
+    $("#accountError").html(
+      "Account info only available with accounts through auth0. to learn more, visit the<a href='https://flowspace.app/about/#FAQ'>FAQ</a>",
+    );
+    $("#accountSettings").remove();
+  } else {
+  }
+}
 
 function jsAppsPage() {
   fetch("/js/apps.json")
