@@ -1,11 +1,6 @@
 <!doctype html>
 <html lang="en" data-theme="">
   <head>
-    <script src="js/jquery.js"></script>
-    <script
-      src="https://kit.fontawesome.com/dad218034c.js"
-      crossorigin="anonymous"
-    ></script>
     <link id="css" rel="stylesheet" href="css/style.css" />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -17,19 +12,17 @@
       <div id="user">
         <img id="uIcon" alt="User Icon" />
       </div>
-      <div id="buttons">
-        <button onclick="swup.navigate('/');">
-          <i class="fa-solid fa-house fa-xl"></i>
-        </button>
-        <button onclick="swup.navigate('/apps');">
-          <i class="fa-solid fa-gamepad fa-xl"></i>
-        </button>
-        <button onclick="swup.navigate('/about');">
-          <i class="fa-solid fa-address-book fa-xl"></i>
-        </button>
-      </div>
-      <button onclick="swup.navigate('/settings');">
-        <i class="fa-solid fa-sliders fa-xl"></i>
+      <button onclick="swup.navigate('/');">
+        <img src="assets/home.svg">
+      </button>
+      <button onclick="swup.navigate('/apps');">
+        <img src="assets/layers.svg">
+      </button>
+      <button onclick="swup.navigate('/about');">
+        <img src="assets/help-circle.svg">
+      </button>
+      <button class="bottom" onclick="swup.navigate('/settings');">
+        <img src="assets/sliders.svg">
       </button>
     </nav>
     <main id="swup" class="transition-main">
@@ -45,12 +38,7 @@
     <script>
       const swup = new Swup();
     </script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
+    <script src="js/jquery.js"></script>
     <script src="js/index.js" type="module"></script>
   </body>
 </html>

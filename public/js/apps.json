@@ -10,5 +10,12 @@
     "name": "Cookie Clicker",
     "icon": "/pngs/cookie_clicker.jpg",
     "url": "https://novaspaceabc.replit.app/cookieclicker/index.html"
+  },
+  {
+    "id": "XFObHJTu2kYUCePZ",
+    "name":"Google Solitare",
+    "catg":"Google Doodles",
+    "icon":"/pngs/google_solitare.png",
+    "url":"https://acebos.github.io/solitaire/standalone.html"
   }
 ]

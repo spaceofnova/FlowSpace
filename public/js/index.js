@@ -15,8 +15,11 @@ $(document).ready(function () {
       success: function (data) {
         $("#username").text(data.name);
         $("#uIcon").attr("src", data.picture);
-        if (data.id == "")
-        window.localStorage.setItem("userid", JSON.stringify(data.id));
+        if (data.id == "") {
+          window.localStorage("userid", "notLoggedIn")
+        }else {
+          window.localStorage.setItem("userid", JSON.stringify(data.id));
+        }  
       },
       error: function () {
         $("#user")
@@ -56,7 +59,13 @@ function jsSettingsPage() {
       "Account info only available with accounts through auth0. to learn more, visit the<a href='https://flowspace.app/about/#FAQ'>FAQ</a>",
     );
     $("#accountSettings").remove();
-  } else {
+  } else if (userid = "notLoggedIn") {
+    $("#accountError").html(
+      "To change account settings, You have to be logged in. <a href='/login'>Log in</a>",
+    );
+    $("#accountSettings").remove();
+  }else {
+
   }
 }
 
