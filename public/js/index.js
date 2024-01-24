@@ -21,7 +21,7 @@ $(document).ready(function () {
       error: function () {
         $("#user")
           .addClass("notLoggedIn")
-          .html("<button> Login </button>")
+          .html("<button> <img src='assets/log-in.svg' class='feather-icon'> </button>")
           .off("click")
           .on("click", function () {
             window.location.href = "/login";

@@ -232,7 +232,8 @@ button {
   border: none;
   border-radius: 6px;
   transition: box-shadow 250ms ease-in-out;
-  background: transparent;
+  background: var(--secondary);
+  margin: 5px;
 }
 
 button:hover {
@@ -439,11 +440,12 @@ nav #buttons button a {
     display: none; 
   }
   
-  #user img {
+  #user img:not(.feather-icon) {
     width: 100%;
     aspect-ratio: 1 / 1;
     border-radius: 10px;
   }
+
   
   nav button {
     width: 100%;
