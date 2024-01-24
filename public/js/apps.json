@@ -16,6 +16,13 @@
     "name":"Google Solitare",
     "catg":"Google Doodles",
     "icon":"/pngs/google_solitare.png",
-    "url":"https://acf6fc95-b082-4b81-b979-9346971f10c1-00-1279x5uuicc1p.worf.replit.dev/solitaire-main/standalone.html"
+    "url":"https://novaspaceabc.replit.app//solitaire-main/standalone.html"
+  },
+  {
+    "id": "9y0xEoTGWTzfWl8b",
+    "name":"Friday Night Funkin'",
+    "catg":"FNF",
+    "icon":"/pngs/fnf.png",
+    "url":"https://novaspaceabc.replit.app//fnf/index.html"
   }
 ]
