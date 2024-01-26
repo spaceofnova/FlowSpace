@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" data-theme="forest">
   <head>
     <link id="css" rel="stylesheet" href="css/style.css" />
@@ -9,20 +9,25 @@
   </head>
   <body data-theme="">
     <nav>
-      <div id="user">
-        <img id="uIcon" alt="User Icon" />
-      </div>
+      <button id="user">
+        <i data-feather="log-in"></i>
+        Login
+      </button>
       <button onclick="swup.navigate('/');">
-        <img src="assets/home.svg">
+        <i data-feather="home"></i>
+        Home
       </button>
       <button onclick="swup.navigate('/apps');">
-        <img src="assets/layers.svg">
+        <i data-feather="layers"></i>
+        Apps
       </button>
       <button onclick="swup.navigate('/about');">
-        <img src="assets/help-circle.svg">
+        <i data-feather="help-circle"></i>
+        About
       </button>
       <button class="bottom" onclick="swup.navigate('/settings');">
-        <img src="assets/sliders.svg">
+        <i data-feather="sliders"></i>
+        Settings
       </button>
     </nav>
     <main id="swup" class="transition-main">
@@ -35,5 +40,8 @@
     </script>
     <script src="js/jquery.js"></script>
     <script src="js/index.js" type="module"></script>
+    <script>
+      feather.replace();
+    </script>
   </body>
 </html>
