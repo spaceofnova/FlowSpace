@@ -1,7 +1,7 @@
 function refreshPageTheme() {
   document.documentElement.setAttribute(
     "data-theme",
-    window.localStorage.getItem("theme")
+    window.localStorage.getItem("theme"),
   );
 }
 
@@ -14,7 +14,7 @@ $(document).ready(function () {
       dataType: "json",
       success: function (data) {
         $("#user").html(
-          "<img src=" + data.picture + "></img><p>" + data.name + "</p>"
+          "<img src=" + data.picture + "></img><p>" + data.name + "</p>",
         );
         if (data.id == "") {
           window.localStorage("userid", "notLoggedIn");
@@ -43,7 +43,7 @@ $(document).ready(function () {
       "- Damage to your computer or device\n" +
       "- Loss of data\n" +
       "- Exposure to harmful content\n" +
-      "Stay safe online! "
+      "Stay safe online! ",
   );
 });
 
@@ -55,12 +55,12 @@ function jsSettingsPage() {
   var userid = window.localStorage.getItem("userid");
   if (userid == "none") {
     $("#accountError").html(
-      "Account info only available with accounts through auth0. to learn more, visit the<a href='https://flowspace.app/about/#FAQ'>FAQ</a>"
+      "Account info only available with accounts through auth0. to learn more, visit the<a href='https://flowspace.app/about/#FAQ'>FAQ</a>",
     );
     $("#accountSettings").remove();
   } else if ((userid = "notLoggedIn")) {
     $("#accountError").html(
-      "To change account settings, You have to be logged in. <a href='/login'>Log in</a>"
+      "To change account settings, You have to be logged in. <a href='/login'>Log in</a>",
     );
     $("#accountSettings").remove();
   } else {
@@ -126,6 +126,9 @@ if (document.readyState === "complete") {
 swup.hooks.on("page:view", () => init());
 
 function checkForGoGuardian() {
+  if (window.location.href == "about:blank") {
+    return false;
+  }
   var privacyBanner = document.getElementById("gg-privacy-banner");
   if (privacyBanner) {
     return true; // GoGuardian is likely present
@@ -140,7 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
   setTimeout(function () {
     if (checkForGoGuardian()) {
       var ask = confirm(
-        "It seems you have goguardian installed. \n Would you like to enter hidden mode?"
+        "It seems you have goguardian installed. \n Would you like to enter hidden mode?",
       );
       if (ask) {
         var url = "http://localhost:3000";
