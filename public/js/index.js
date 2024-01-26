@@ -104,6 +104,7 @@ function appLauncher() {
 }
 
 function init() {
+  feather.replace();
   if (document.querySelector("#page-apps")) {
     jsAppsPage();
   }

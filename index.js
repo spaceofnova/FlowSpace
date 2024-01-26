@@ -22,6 +22,10 @@ app.get("/settings", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "pages/settings.html"));
 });
 
+app.get("/changelog", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "pages/changes.html"));
+});
+
 
 
 const { auth } = require("express-openid-connect");

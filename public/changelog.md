@@ -1,4 +1,3 @@
-# Changelog
 Uh update stuff, yeah.
 
 ## Beta: 0.2
@@ -19,15 +18,15 @@ Uh update stuff, yeah.
 ## Beta 0.51 
   - Fixed theming system v0.79
   - Updated mobile site to match new Animation system
-  - Made the user icon thing on the mobile site actually fucking work
+  - Made the user icon thing on the mobile site actually ~~fucking~~ work
   - Updated Icons
-  - made the mobile icons usuable for normal fucking people
+  - made the mobile icons usuable for normal ~~fucking~~ people
   - Deployed the new site!! [Flowspace.app](https://flowspace.app)
   - Deprecated this old shit -> [flowspace.replit.app](https://flowspace.replit.app)
 
 ## Beta 0.57 
   - added this changelog
-  - the code broke, had to fucking fix it again 
+  - the code broke, had to ~~fucking~~ fix it again 
   - Changed how page navigation worked
   - Finished main components of Theming system v0.92
 
@@ -35,5 +34,18 @@ Uh update stuff, yeah.
   - Theme system finished
   - fixed some minor issues
   - fixed text sizing for mobile
-  - made the text not fuck itself on certain devices
+  - made the text not ~~fuck~~ itself on certain devices
 
+## Beta 0.65 
+  - Added user settings to settings page for Auth0 users (Broken)
+  - Added hidden mode for users that have GoGuardian installed to prevent issues
+  - Disabled Themes due to privacy issues
+
+
+## Beta 0.67 
+  - Started UI Re-design 0.453
+  - Fixed Feather Icons
+  - Mobile Ui is still ~~fucked~~
+
+## Quick Patch 940AJ26
+  - Added Chnage Log & Fixed icons not rendering
