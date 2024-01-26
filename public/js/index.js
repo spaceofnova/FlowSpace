@@ -1,7 +1,7 @@
 function refreshPageTheme() {
   document.documentElement.setAttribute(
     "data-theme",
-    window.localStorage.getItem("theme"),
+    window.localStorage.getItem("theme")
   );
 }
 
@@ -13,18 +13,17 @@ $(document).ready(function () {
       type: "GET",
       dataType: "json",
       success: function (data) {
-        $("#username").text(data.name);
-        $("#uIcon").attr("src", data.picture);
+        $("#user").html(
+          "<img src=" + data.picture + "></img><p>" + data.name + "</p>"
+        );
         if (data.id == "") {
-          window.localStorage("userid", "notLoggedIn")
-        }else {
+          window.localStorage("userid", "notLoggedIn");
+        } else {
           window.localStorage.setItem("userid", JSON.stringify(data.id));
-        }  
+        }
       },
       error: function () {
         $("#user")
-          .addClass("notLoggedIn")
-          .html("<button> <img src='assets/log-in.svg' class='feather-icon'> </button>")
           .off("click")
           .on("click", function () {
             window.location.href = "/login";
@@ -44,28 +43,27 @@ $(document).ready(function () {
       "- Damage to your computer or device\n" +
       "- Loss of data\n" +
       "- Exposure to harmful content\n" +
-      "Stay safe online! ",
+      "Stay safe online! "
   );
 });
 
 function jsSettingsPage() {
-  $(".themeBtn").on("click", function () {
-    window.localStorage.setItem("theme", $(this).attr("id"));
-    document.documentElement.setAttribute("data-theme", $(this).attr("id"));
-  });
+  // $(".themeBtn").on("click", function () {
+  //   window.localStorage.setItem("theme", $(this).attr("id"));
+  //   document.documentElement.setAttribute("data-theme", $(this).attr("id"));
+  // });
   var userid = window.localStorage.getItem("userid");
   if (userid == "none") {
     $("#accountError").html(
-      "Account info only available with accounts through auth0. to learn more, visit the<a href='https://flowspace.app/about/#FAQ'>FAQ</a>",
+      "Account info only available with accounts through auth0. to learn more, visit the<a href='https://flowspace.app/about/#FAQ'>FAQ</a>"
     );
     $("#accountSettings").remove();
-  } else if (userid = "notLoggedIn") {
+  } else if ((userid = "notLoggedIn")) {
     $("#accountError").html(
-      "To change account settings, You have to be logged in. <a href='/login'>Log in</a>",
+      "To change account settings, You have to be logged in. <a href='/login'>Log in</a>"
     );
     $("#accountSettings").remove();
-  }else {
-
+  } else {
   }
 }
 
@@ -126,3 +124,37 @@ if (document.readyState === "complete") {
 
 // Run after every additional navigation by swup
 swup.hooks.on("page:view", () => init());
+
+function checkForGoGuardian() {
+  var privacyBanner = document.getElementById("gg-privacy-banner");
+  if (privacyBanner) {
+    return true; // GoGuardian is likely present
+  } else {
+    return false; // GoGuardian is likely not present
+  }
+}
+
+// MAKE ALERT FOR ABOUT:BLANK REDIRECT ON FLOWSPACE.APP JUST IN CASE
+
+document.addEventListener("DOMContentLoaded", function () {
+  setTimeout(function () {
+    if (checkForGoGuardian()) {
+      var ask = confirm(
+        "It seems you have goguardian installed. \n Would you like to enter hidden mode?"
+      );
+      if (ask) {
+        var url = "http://localhost:3000";
+        var win = window.open();
+        win.document.body.style.margin = "0";
+        win.document.body.style.height = "100vh";
+        var iframe = win.document.createElement("iframe");
+        iframe.style.border = "none";
+        iframe.style.width = "100%";
+        iframe.style.height = "100%";
+        iframe.style.margin = "0";
+        iframe.src = url;
+        win.document.body.appendChild(iframe);
+      }
+    }
+  });
+});

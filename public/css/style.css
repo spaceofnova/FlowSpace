@@ -1,129 +1,66 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:700|Spline%20Sans:400');
+@import url("https://fonts.googleapis.com/css?family=Poppins:700|Spline%20Sans:400");
 
-body {font-family: 'Spline Sans';font-weight: 400;}h1, h2, h3, h4, h5 {font-family: 'Poppins';font-weight: 700;}html {font-size: 100%;}h1 {font-size: 4.210rem;}h2 {font-size: 3.158rem;}h3 {font-size: 2.369rem;}h4 {font-size: 1.777rem;}h5 {font-size: 1.333rem;}small {font-size: 0.750rem;}
+body {
+  font-family: "Spline Sans";
+  font-weight: 400;
+  margin: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Poppins";
+  font-weight: 700;
+}
+html {
+  font-size: 100%;
+}
+h1 {
+  font-size: 4.21rem;
+}
+h2 {
+  font-size: 3.158rem;
+}
+h3 {
+  font-size: 2.369rem;
+}
+h4 {
+  font-size: 1.777rem;
+}
+h5 {
+  font-size: 1.333rem;
+}
+small {
+  font-size: 0.75rem;
+}
 
 @media (prefers-color-scheme: light) {
   :root {
-    --text: rgb(15, 15, 15);
-    --background: rgb(244, 240, 240);
-    --primary: rgb(82, 51, 50);
-    --secondary: rgb(203, 151, 149);
-    --accent: rgb(121, 25, 22);
-  }
-  :root[data-theme="blueberry"] {
-    --text: #1c2108;
-    --background: #faf4eb;
-    --primary: #5e721d;
-    --secondary: #7596db;
-    --accent: #380d6e;
-  }
-  :root[data-theme="pumpkin"] {
-    --text: #13100b;
-    --background: #f6f3ee;
-    --primary: #644d26;
-    --secondary: #d6b67a;
-    --accent: #b88628;
-  }
-  :root[data-theme="lavender"] { /* By Iris */
-    --text: #110d12;
-    --background: #f6f3f7;
-    --primary: #533159;
-    --secondary: #c38fcc;
-    --accent: #8c3c9a;
-  }
-  :root[data-theme="emerald"] { /* By Joey Murphy */
-    --text: #092702;
-    --background: #f3fef1;
-    --primary: #1d7d08;
-    --secondary: #65f6a1;
-    --accent: #0eec9e;
-  }
-  :root[data-theme="bola"] { /* By Jason */
-    --text: #100f10;
-    --background: #f8f6f9;
-    --primary: #462b5f;
-    --secondary: #ab7dd9;
-    --accent: #993af8;
-  }
-  :root[data-theme="ocean"] {
-    --text: #0d2113;
-    --background: #f4fbf6;
-    --primary: #29603c;
-    --secondary: #bfeee6;
-    --accent: #439c9d;
-  }
-  :root[data-theme="cozy"] {
-    --text: #5f2b2b;
-    --background: #f3e5b4;
-    --primary: #6e1212;
-    --secondary: #454545;
-    --accent: #ebcc93;
+    --text: #111c1a;
+    --background: #f0f9f8;
+    --background-accent: #c1f7ef;
+    --primary: #18675b;
+    --secondary: #54ab9f;
+    --accent: #00f0cc;
   }
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --text: rgb(240, 240, 240);
-    --background: rgb(16, 12, 12);
-    --primary: rgb(205, 175, 174);
-    --secondary: rgb(106, 54, 52);
-    --accent: rgb(233, 136, 133);
-  }
-  :root[data-theme="blueberry"] {
-    --text: #f2f7de;
-    --background: #130e05;
-    --primary: #cee28d;
-    --secondary: #24448a;
-    --accent: #bc90f2;
-  }
-  :root[data-theme="pumpkin"] {
-    --text: #f4f1ec;
-    --background: #100d08;
-    --primary: #d9c39c;
-    --secondary: #846428;
-    --accent: #d6a346;
-  }
-  :root[data-theme="lavender"] { /* By Iris */
-    --text: #f0ecf1;
-    --background: #0b080c;
-    --primary: #c8a6ce;
-    --secondary: #673470;
-    --accent: #b565c3;
-  }
-  :root[data-theme="emerald"] { /* By Joey Murphy */
-    --text: #defdd6;
-    --background: #030d01;
-    --primary: #95f780;
-    --secondary: #099946;
-    --accent: #13f1a5;
-  }
-  :root[data-theme="bola"] { /* By Jason */
-    --text: #f1f0f1;
-    --background: #09070a;
-    --primary: #ba9fd4;
-    --secondary: #552684;
-    --accent: #6607c4;
-  }
-  :root[data-theme="ocean"] {
-    --text: #ddf1e3;
-    --background: #040a06;
-    --primary: #9dd5b0;
-    --secondary: #113f37;
-    --accent: #63bbbc;
-  }
-  :root[data-theme="cozy"] {
-    --text: #f6d5d5;
-    --background: #231b16;
-    --primary: #b9b5dd;
-    --secondary: #982f2f;
-    --accent: #c69c4e;
+    --text: #e3eeec;
+    --background: #06100f;
+    --background-accent: #0c3b34;
+    --primary: #97e7db;
+    --secondary: #53aa9e;
+    --accent: #0fffdc;
   }
 }
 
 .applist {
-    width: fit-content;
-    margin: 0 auto;
-    display: flex;
-    gap: 15px;
+  width: fit-content;
+  margin: 0 auto;
+  display: flex;
+  gap: 15px;
 }
 
 .gameElement {
@@ -155,7 +92,6 @@ body {font-family: 'Spline Sans';font-weight: 400;}h1, h2, h3, h4, h5 {font-fami
   justify-content: space-between;
 }
 
-
 .blank {
   display: none;
 }
@@ -181,40 +117,16 @@ body {font-family: 'Spline Sans';font-weight: 400;}h1, h2, h3, h4, h5 {font-fami
   justify-content: center;
 }
 
-/* width */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: var(--background);
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: var(--accent);
-  border-radius: 12px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: var(--secondary);
-}
-
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
-  background-color: var(--background);
+  background: var(--background);
   color: var(--text);
   width: 100%;
   height: 100%;
+  overflow: hidden;
 }
-
-main {
-  overflow-y: scroll;
-}
-
 
 #headbox {
   background: linear-gradient(to right, var(--primary), var(--secondary));
@@ -224,7 +136,6 @@ main {
   color: white;
 }
 
-
 /* start of nova.css */
 button {
   user-select: none;
@@ -233,16 +144,19 @@ button {
   border-radius: 6px;
   transition: box-shadow 250ms ease-in-out;
   background: var(--secondary);
-  margin: 5px;
 }
 
 button:hover {
   cursor: pointer;
 }
 
+button:disabled {
+  filter: grayscale(100);
+  cursor: not-allowed;
+}
+
 a {
   color: var(--text);
-
 }
 
 .transition-main {
@@ -262,7 +176,6 @@ html.is-leaving .transition-main {
   transform: translateY(-1rem);
 }
 
-
 #themeArea {
   margin: 0 auto;
   width: 60%;
@@ -273,224 +186,224 @@ html.is-leaving .transition-main {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 80px);
-  
   gap: 15px;
 }
 
-@media (pointer: coarse)  {
-
-  h1, h2, h3, h4, h5 {
-    font-family: 'Poppins';
+/* Mobile CSS!!! */
+@media (pointer: coarse) {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: "Poppins";
     font-weight: 700;
   }
 
-  html {font-size: 100%;} /* 16px */
+  html {
+    font-size: 100%;
+  } /* 16px */
 
-  h1 {font-size: 2.489rem; /* 39.84px */}
+  h1 {
+    font-size: 2.489rem; /* 39.84px */
+  }
 
-  h2 {font-size: 2.074rem; /* 33.12px */}
+  h2 {
+    font-size: 2.074rem; /* 33.12px */
+  }
 
-  h3 {font-size: 1.728rem; /* 27.68px */}
+  h3 {
+    font-size: 1.728rem; /* 27.68px */
+  }
 
-  h4 {font-size: 1.440rem; /* 23.04px */}
+  h4 {
+    font-size: 1.44rem; /* 23.04px */
+  }
 
-  h5 {font-size: 1.200rem; /* 19.2px */}
+  h5 {
+    font-size: 1.2rem; /* 19.2px */
+  }
 
-  small {font-size: 0.833rem; /* 13.28px */}
-  
+  small {
+    font-size: 0.833rem; /* 13.28px */
+  }
+
   #themeArea {
     margin: 0 auto;
     width: 90%;
     height: 45%;
   }
-  
- nav {
-  display: flex;
-  flex-direction: row;
-  justify-content: start;
-  align-content: center;
-  padding: 0.2rem;
-  border-top: 1px solid rgba(255,255,255,0.5);
-  color: var(--text);
-  height: 48px;
-  width: calc(100% - 0.4rem);
-  position: fixed;
-  bottom: 0;
-  left: 0;
- }
 
- #user {
-  display: flex;
-  flex-direction: row;
-  gap: 0.2rem;
-  user-select: none;
-  cursor: pointer;
-  position: relative;
- }
-
- #user img {
-  height: 100%;
-  aspect-ratio: 1 / 1;
-  border-radius: 10px;
- }
-
- nav #buttons {
-  display: flex;
-  flex-direction: row;
-  gap: 0.2rem;
-  height: 100%;
-  text-align: center;
- }
-
- nav button {
-  height: 100%;
-  aspect-ratio: 1 / 1;
- }
-
- button a {
-  width: 100%;
-  height: 100%;
-  color: white;
-  text-decoration: none;
- }
-
-nav #buttons button a {
-  width: 100%;
-  height: 100%;
-  color: white;
-  text-decoration: none;
-}
-
- main {
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: grid;
-  width: 100%;
-  height: calc(100% - 71px);
-  place-items: center top;
-  text-align: center;  
-  overflow-y: scroll;
- }
-
- #headbox {
-  width: 90%;
-  height: fit-content;
-  margin: 0 auto;
-  margin-top: 50px;
-  border-radius: 20px;
-  position: relative;
- }
-
- #headbox #title {
-  font-size: 1.777rem;
- }
-
- #headbox #description {
-  width: 100%;
-  margin: 10px auto;
- }
-}
-
-@media (pointer: fine), (pointer: none) {
   nav {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0.2rem;
-    border-right: 1px solid rgba(255,255,255,0.6);
-    color: var(--text);
-    width: 64px;
-    height: calc(100% - 0.4rem);
-  }
-  
-  nav.bottom {
-    position: absolute;
-    bottom: 10px;
+    flex-direction: row;
+    justify-content: start;
+    align-content: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    height: 48px;
+    width: calc(100% - 0.4rem);
+    bottom: 0;
   }
 
   #user {
-    display: flex;
     flex-direction: row;
     gap: 0.2rem;
-    width: 100%;
     user-select: none;
-    cursor: pointer;
-    position: relative;
-  }
-  
-  #user:hover::after {
-    content: "Account settings";
-    position: absolute;
-    bottom: 0;
-    left: 110%;
-    width: fit-content;
-    height: fit-content;
-    text-align: center;
-    background: rgba(255, 255, 255, 0.5);
   }
 
-  #user.notLoggedIn:hover::after {
-    content: "";
-    position: inherit;
-    width: auto;
-    height: auto;
-    text-align: center;
-    background: rgba(0,0,0,0);
-    display: none; 
-  }
-  
-  #user img:not(.feather-icon) {
-    width: 100%;
-    aspect-ratio: 1 / 1;
+  #user img {
+    height: 100%;
     border-radius: 10px;
   }
 
-  
-  nav button {
-    width: 100%;
-    aspect-ratio: 1 / 1;
+  nav #buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 0.2rem;
+    height: 100%;
+    text-align: center;
   }
-  
+
+  nav button {
+    height: 100%;
+  }
+
+  button a {
+    width: 100%;
+    height: 100%;
+    color: white;
+    text-decoration: none;
+  }
+
+  nav #buttons button a {
+    width: 100%;
+    height: 100%;
+    color: white;
+    text-decoration: none;
+  }
+
   main {
     position: fixed;
     top: 0;
-    right: 0;
+    left: 0;
     display: grid;
-    width: calc(100% - 71px);
-    height: 100%;
+    width: 100%;
+    height: calc(100% - 71px);
     place-items: center top;
-    text-align: center;  
+    text-align: center;
   }
-  
+
   #headbox {
-    width: 60%;
-    height: 340px;
+    width: 90%;
+    height: fit-content;
     margin: 0 auto;
     margin-top: 50px;
     border-radius: 20px;
     position: relative;
   }
-  
+
+  #headbox #title {
+    font-size: 1.777rem;
+  }
+
+  #headbox #description {
+    width: 100%;
+    margin: 10px auto;
+  }
+}
+
+/* Desktop CSS!!! */
+@media (pointer: fine), (pointer: none) {
+  :root {
+    --nav-width: 9.515%;
+  }
+  body {
+    background: var(--background) center center;
+    background-size: cover;
+  }
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.2rem;
+    margin: 0.2rem;
+    width: var(--nav-width);
+    height: calc(100% - 0.8rem);
+    position: relative;
+    background: var(--background-accent);
+  }
+
+  nav button {
+    width: 95%;
+    height: 3.5rem;
+    margin-top: 10px;
+    border-radius: 10px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: background 150ms ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  nav button:hover {
+    background: rgba(255, 255, 255, 0.25);
+  }
+
+  nav button img {
+    height: calc(100% - 0.2rem);
+    aspect-ratio: 1 / 1;
+    border-radius: 10px;
+    padding: 0.1rem;
+  }
+
+  nav .bottom {
+    position: absolute;
+    bottom: 10px;
+  }
+
+  main {
+    width: calc(99.5% - var(--nav-width));
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: var(--background);
+    display: grid;
+    place-items: center top;
+    text-align: center;
+    padding: 0;
+  }
+
+  #headbox {
+    width: 60%;
+    height: 45.663%;
+    margin: 0 auto;
+    margin-top: 50px;
+    border-radius: 20px;
+    position: relative;
+  }
+
   #headbox #title {
     position: absolute;
     top: -10px;
-    left: 25px;  
+    left: 25px;
   }
-  
+
   #headbox #description {
     position: absolute;
     bottom: 5px;
-    left: 25px;  
+    left: 25px;
     width: 75%;
     text-align: left;
   }
-  
+
   #headbox #learnmore {
     position: absolute;
     bottom: 20px;
     right: 25px;
     width: auto;
     height: auto;
+    text-decoration: none;
   }
 }

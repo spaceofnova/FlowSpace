@@ -1,6 +1,7 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
+    <script src="https://unpkg.com/feather-icons"></script>
     <link id="css" rel="stylesheet" href="css/style.css" />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -9,20 +10,25 @@
   </head>
   <body>
     <nav>
-      <div id="user">
-        <img id="uIcon" alt="User Icon" />
-      </div>
+      <button id="user">
+        <i data-feather="log-in"></i>
+        Login
+      </button>
       <button onclick="swup.navigate('/');">
-        <img src="assets/home.svg">
+        <i data-feather="home"></i>
+        Home
       </button>
       <button onclick="swup.navigate('/apps');">
-        <img src="assets/layers.svg">
+        <i data-feather="layers"></i>
+        Apps
       </button>
       <button onclick="swup.navigate('/about');">
-        <img src="assets/help-circle.svg">
+        <i data-feather="help-circle"></i>
+        About
       </button>
       <button class="bottom" onclick="swup.navigate('/settings');">
-        <img src="assets/sliders.svg">
+        <i data-feather="sliders"></i>
+        Settings
       </button>
     </nav>
     <main id="swup" class="transition-main">
@@ -30,8 +36,7 @@
         <h3 id="title">Flowspace is finally in Beta!!!</h3>
         <p id="description">Flowspace, finally here. c:</p>
         <a id="learnmore" href="/blog/flowspace-beta"
-          >Learn what was added this update
-          <i class="fa-solid fa-arrow-up-right-from-square"></i
+          >Learn what was added this update <i data-feather="arrow-up-right"></i
         ></a>
       </div>
       <div id="recentApps">
@@ -47,5 +52,8 @@
     </script>
     <script src="js/jquery.js"></script>
     <script src="js/index.js" type="module"></script>
+    <script>
+      feather.replace();
+    </script>
   </body>
 </html>
