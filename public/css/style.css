@@ -326,10 +326,12 @@ html.is-leaving .transition-main {
     align-items: center;
     padding: 0.2rem;
     margin: 0.2rem;
+    margin-left: 0;
     width: var(--nav-width);
     height: calc(100% - 0.8rem);
     position: relative;
     background: var(--background-accent);
+    border-radius: 10px;
   }
 
   nav button {
