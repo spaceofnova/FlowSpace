@@ -1,3 +1,5 @@
+import { marked } from "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js";
+
 function refreshPageTheme() {
   document.documentElement.setAttribute(
     "data-theme",
@@ -113,6 +115,13 @@ function init() {
   }
   if (document.querySelector("#page-settings")) {
     jsSettingsPage();
+  }
+  if (document.querySelector("#page-changes")) {
+    fetch("changelog.md")
+      .then((response) => response.text())
+      .then((textString) => {
+        document.getElementById("content").innerHTML = marked.parse(textString);
+      });
   }
 }
 
