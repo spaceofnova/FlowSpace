@@ -1,20 +1,40 @@
-/* Importing Google Fonts */
 @import url("https://fonts.googleapis.com/css?family=Poppins:700|Spline%20Sans:400");
 
-/* Root Styles */
-html, body {
-  font-size: 100%;
+body {
+  font-family: "Spline Sans";
+  font-weight: 400;
   margin: 0;
-  padding: 0;
-  background: var(--background);
-  color: var(--text);
-  font-family: "Spline Sans", sans-serif;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Poppins";
+  font-weight: 700;
+}
+html {
+  font-size: 100%;
+}
+h1 {
+  font-size: 4.21rem;
+}
+h2 {
+  font-size: 3.158rem;
+}
+h3 {
+  font-size: 2.369rem;
+}
+h4 {
+  font-size: 1.777rem;
+}
+h5 {
+  font-size: 1.333rem;
+}
+small {
+  font-size: 0.75rem;
 }
 
-/* Color Scheme for Light Mode */
 @media (prefers-color-scheme: light) {
   :root {
     --text: #111c1a;
@@ -25,8 +45,6 @@ html, body {
     --accent: #00f0cc;
   }
 }
-
-/* Color Scheme for Dark Mode */
 @media (prefers-color-scheme: dark) {
   :root {
     --text: #e3eeec;
@@ -38,19 +56,6 @@ html, body {
   }
 }
 
-/* Typography */
-h1, h2, h3, h4, h5 {
-  font-family: "Poppins", sans-serif;
-  font-weight: 700;
-}
-h1 { font-size: 4.21rem; }
-h2 { font-size: 3.158rem; }
-h3 { font-size: 2.369rem; }
-h4 { font-size: 1.777rem; }
-h5 { font-size: 1.333rem; }
-small { font-size: 0.75rem; }
-
-/* Application List Style */
 .applist {
   width: fit-content;
   margin: 0 auto;
@@ -58,7 +63,6 @@ small { font-size: 0.75rem; }
   gap: 15px;
 }
 
-/* Game Element Style */
 .gameElement {
   width: 300px;
   height: 150px;
@@ -88,8 +92,9 @@ small { font-size: 0.75rem; }
   justify-content: space-between;
 }
 
-/* Misc Styles */
-.blank { display: none; }
+.blank {
+  display: none;
+}
 
 .app {
   height: 90%;
@@ -112,13 +117,26 @@ small { font-size: 0.75rem; }
   justify-content: center;
 }
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--background);
+  color: var(--text);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
 #headbox {
   background: linear-gradient(to right, var(--primary), var(--secondary));
 }
 
-#headbox #learnmore { color: white; }
+#headbox #learnmore {
+  color: white;
+}
 
-/* Button Styles */
+/* start of nova.css */
 button {
   user-select: none;
   color: var(--text);
@@ -128,16 +146,19 @@ button {
   background: var(--secondary);
 }
 
-button:hover { cursor: pointer; }
+button:hover {
+  cursor: pointer;
+}
 
 button:disabled {
-  filter: grayscale(100%);
+  filter: grayscale(100);
   cursor: not-allowed;
 }
 
-a { color: var(--text); }
+a {
+  color: var(--text);
+}
 
-/* Transition Effects */
 .transition-main {
   transition-property: opacity, transform;
   transition-duration: 250ms;
@@ -155,7 +176,6 @@ html.is-leaving .transition-main {
   transform: translateY(-1rem);
 }
 
-/* Theme Area Styles */
 #themeArea {
   margin: 0 auto;
   width: 60%;
@@ -169,14 +189,44 @@ html.is-leaving .transition-main {
   gap: 15px;
 }
 
-/* Mobile Specific Styles */
+/* Mobile CSS!!! */
 @media (pointer: coarse) {
-  h1 { font-size: 2.489rem; }
-  h2 { font-size: 2.074rem; }
-  h3 { font-size: 1.728rem; }
-  h4 { font-size: 1.44rem; }
-  h5 { font-size: 1.2rem; }
-  small { font-size: 0.833rem; }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: "Poppins";
+    font-weight: 700;
+  }
+
+  html {
+    font-size: 100%;
+  } /* 16px */
+
+  h1 {
+    font-size: 2.489rem; /* 39.84px */
+  }
+
+  h2 {
+    font-size: 2.074rem; /* 33.12px */
+  }
+
+  h3 {
+    font-size: 1.728rem; /* 27.68px */
+  }
+
+  h4 {
+    font-size: 1.44rem; /* 23.04px */
+  }
+
+  h5 {
+    font-size: 1.2rem; /* 19.2px */
+  }
+
+  small {
+    font-size: 0.833rem; /* 13.28px */
+  }
 
   #themeArea {
     margin: 0 auto;
@@ -261,11 +311,15 @@ html.is-leaving .transition-main {
   }
 }
 
-/* Desktop Specific Styles */
+/* Desktop CSS!!! */
 @media (pointer: fine), (pointer: none) {
-  :root { --nav-width: 9.515%; }
-  body { background: var(--background) center center; background-size: cover; }
-
+  :root {
+    --nav-width: 9.515%;
+  }
+  body {
+    background: var(--background) center center;
+    background-size: cover;
+  }
   nav {
     display: flex;
     flex-direction: column;
@@ -283,7 +337,6 @@ html.is-leaving .transition-main {
   nav button {
     width: 95%;
     height: 3.5rem;
-    margin-top: 10px;
     border-radius: 10px;
     border: none;
     background: transparent;
@@ -291,7 +344,7 @@ html.is-leaving .transition-main {
     transition: background 150ms ease-in-out;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 7px;
   }
 
   nav button:hover {
