@@ -1,3 +1,4 @@
+
 function refreshPageTheme() {
   const theme = window.localStorage.getItem("theme");
   document.documentElement.setAttribute("data-theme", theme);
