@@ -1,4 +1,6 @@
-
+var mobile = /iphone|ipod|android|blackberry|mini|windows\sce|palm/i.test(
+  navigator.userAgent.toLowerCase()
+);
 function refreshPageTheme() {
   const theme = window.localStorage.getItem("theme");
   document.documentElement.setAttribute("data-theme", theme);
@@ -14,12 +16,17 @@ $(document).ready(function () {
       dataType: "json",
       success: function (data) {
         $("#user").html(`<img src="${data.picture}"><p>${data.name}</p>`);
-        window.localStorage.setItem("userid", data.id ? JSON.stringify(data.id) : "notLoggedIn");
+        window.localStorage.setItem(
+          "userid",
+          data.id ? JSON.stringify(data.id) : "notLoggedIn"
+        );
       },
       error: function () {
-        $("#user").off("click").on("click", () => window.location.href = "/login");
+        $("#user")
+          .off("click")
+          .on("click", () => (window.location.href = "/login"));
         window.localStorage.setItem("userid", "notLoggedIn");
-      }
+      },
     });
   };
 
@@ -31,9 +38,11 @@ function jsSettingsPage() {
   let errorHtml = "";
 
   if (userid === "none") {
-    errorHtml = "Account info only available with accounts through auth0. To learn more, visit the <a href='https://flowspace.app/about/#FAQ'>FAQ</a>";
+    errorHtml =
+      "Account info only available with accounts through auth0. To learn more, visit the <a href='https://flowspace.app/about/#FAQ'>FAQ</a>";
   } else if (userid === "notLoggedIn") {
-    errorHtml = "To change account settings, you have to be logged in. <a href='/login'>Log in</a>";
+    errorHtml =
+      "To change account settings, you have to be logged in. <a href='/login'>Log in</a>";
   }
 
   if (errorHtml) {
@@ -43,10 +52,14 @@ function jsSettingsPage() {
 }
 
 function jsAppsPage() {
+  if (mobile) {
+    $(".applist").empty().append("Apps are cuurent only supported Desktop.");
+    return
+  }
   fetch("/js/apps.json")
-    .then(response => response.json())
-    .then(games => {
-      const gameElements = games.map(game => {
+    .then((response) => response.json())
+    .then((games) => {
+      const gameElements = games.map((game) => {
         return $(`<div class="gameElement">
                     <img src="${game.icon}" class="gameIcon">
                     <div class="gameOpt">
@@ -62,9 +75,9 @@ function jsAppsPage() {
 function appLauncher() {
   const gameId = new URLSearchParams(window.location.search).get("id");
   fetch("/js/apps.json")
-    .then(response => response.json())
-    .then(games => {
-      const selectedGame = games.find(game => game.id === gameId);
+    .then((response) => response.json())
+    .then((games) => {
+      const selectedGame = games.find((game) => game.id === gameId);
       if (selectedGame) {
         $("#appTitle").text(selectedGame.name);
         $("#appFrame").attr("src", selectedGame.url);
@@ -77,6 +90,15 @@ function init() {
   if ($("#page-apps").length) jsAppsPage();
   if ($("#page-applaunch").length) appLauncher();
   if ($("#page-settings").length) jsSettingsPage();
+
+  if (mobile) {
+    $("nav *")
+      .contents()
+      .filter(function () {
+        return this.nodeType === Node.TEXT_NODE;
+      })
+      .remove();
+  }
 }
 
 document.addEventListener("DOMContentLoaded", init);
@@ -92,7 +114,11 @@ function checkForGoGuardian() {
 document.addEventListener("DOMContentLoaded", function () {
   setTimeout(function () {
     if (checkForGoGuardian()) {
-      if (confirm("It seems you have GoGuardian installed. Would you like to enter hidden mode?")) {
+      if (
+        confirm(
+          "It seems you have GoGuardian installed. Would you like to enter hidden mode?"
+        )
+      ) {
         var win = window.open("", "_blank");
         win.document.write(`
           <body style="margin:0; height:100vh;">
@@ -104,11 +130,13 @@ document.addEventListener("DOMContentLoaded", function () {
   }, 1000);
 });
 
-console.warn("⚠️  Important Safety Reminder ⚠️\n" +
-  "To protect your security and privacy, please do not paste any code into the console unless you are absolutely certain it is safe to do so.\n" +
-  "Pasting untrusted code can have serious consequences, including:\n" +
-  "- Unauthorized access to your personal information\n" +
-  "- Damage to your computer or device\n" +
-  "- Loss of data\n" +
-  "- Exposure to harmful content\n" +
-  "Stay safe online!");
+console.warn(
+  "⚠️  Important Safety Reminder ⚠️\n" +
+    "To protect your security and privacy, please do not paste any code into the console unless you are absolutely certain it is safe to do so.\n" +
+    "Pasting untrusted code can have serious consequences, including:\n" +
+    "- Unauthorized access to your personal information\n" +
+    "- Damage to your computer or device\n" +
+    "- Loss of data\n" +
+    "- Exposure to harmful content\n" +
+    "Stay safe online!"
+);

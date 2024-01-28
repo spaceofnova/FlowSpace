@@ -185,8 +185,9 @@ html.is-leaving .transition-main {
   }
 
   nav {
-    flex-direction: row;
-    justify-content: start;
+    position: fixed;
+    display: flex;
+    justify-content: space-evenly;
     align-content: center;
     border-top: 1px solid rgba(255, 255, 255, 0.5);
     height: 48px;
@@ -204,17 +205,10 @@ html.is-leaving .transition-main {
     height: 100%;
     border-radius: 10px;
   }
-
-  nav #buttons {
-    display: flex;
-    flex-direction: row;
-    gap: 0.2rem;
-    height: 100%;
-    text-align: center;
-  }
-
   nav button {
     height: 100%;
+    background: none;
+    width: 48px;
   }
 
   button a {

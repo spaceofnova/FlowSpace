@@ -32,47 +32,7 @@
       </button>
     </nav>
     <main id="swup" class="transition-main">
-      <form id="issue-report-form">
-        <label for="issueTitle">Issue Title:</label><br />
-        <input type="text" id="issueTitle" name="issueTitle" required /><br />
-
-        <label for="issueDesc">Description:</label><br />
-        <textarea id="issueDesc" name="issueDesc" required></textarea><br />
-
-        <label for="issueCategory">Category:</label><br />
-        <select id="issueCategory" name="issueCategory">
-          <option value="technical">Technical</option>
-          <option value="account">Account-related</option>
-          <option value="content">Content-related</option></select
-        ><br />
-
-        <input type="submit" value="Submit Issue" />
-      </form>
-      <script>
-        document.addEventListener("DOMContentLoaded", function () {
-          document
-            .getElementById("issue-report-form")
-            .addEventListener("submit", function (e) {
-              e.preventDefault(); // Prevents the default form submission action
-
-              var formData = new FormData(this);
-
-              fetch("/submit-issue", {
-                method: "POST",
-                body: formData,
-              })
-                .then((response) => response.json())
-                .then((data) => {
-                  alert(data.message);
-                  // Reset the form or handle the response further
-                })
-                .catch((error) => {
-                  alert("Error reporting the issue");
-                  console.error("Error:", error);
-                });
-            });
-        });
-      </script>
+      
       <noscript>Javascript is required to use this website.</noscript>
     </main>
     <script src="https://unpkg.com/swup@4"></script>
