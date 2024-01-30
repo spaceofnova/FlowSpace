@@ -1,3 +1,5 @@
+import { marked } from "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js";
+
 var mobile = /iphone|ipod|android|blackberry|mini|windows\sce|palm/i.test(
   navigator.userAgent.toLowerCase()
 );
@@ -54,22 +56,42 @@ function jsSettingsPage() {
 function jsAppsPage() {
   if (mobile) {
     $(".applist").empty().append("Apps are cuurent only supported Desktop.");
-    return
+    return;
   }
-  fetch("/js/apps.json")
-    .then((response) => response.json())
-    .then((games) => {
-      const gameElements = games.map((game) => {
-        return $(`<div class="gameElement">
-                    <img src="${game.icon}" class="gameIcon">
-                    <div class="gameOpt">
-                      <div class="gameName">${game.name}</div>
-                      <button class="gamePlay" onclick="swup.navigate('/app?id=${game.id}')">Play</button>
-                    </div>
-                  </div>`);
-      });
-      $(".applist").empty().append(gameElements);
-    });
+  // fetch("/js/apps.json")
+  //   .then((response) => response.json())
+  //   .then((games) => {
+  //     const gamesByCategory = games.reduce((acc, game) => {
+  //       if (!acc[game.catg]) {
+  //         acc[game.catg] = [];
+  //       }
+  //       acc[game.catg].push(game);
+  //       return acc;
+  //     }, {});
+
+  //     Object.keys(gamesByCategory).forEach((catg) => {
+  //       let categoryElement = $(`.applist .category-${catg}`);
+  //       if (categoryElement.length === 0) {
+  //         categoryElement = $(`<fieldset class="category category-${catg}">
+  //                                       <legend>${catg}</legend>
+  //                                       <div class="games-container"></div>
+  //                                   </fieldset>`);
+  //         $(".applist").append(categoryElement);
+  //       }
+
+  //       const gameElements = gamesByCategory[catg].map((game) => {
+  //         return $(`<div class="gameElement">
+  //                           <img src="${game.icon}" class="gameIcon">
+  //                           <div class="gameOpt">
+  //                               <div class="gameName">${game.name}</div>
+  //                               <button class="gamePlay" onclick="swup.navigate('/app?id=${game.id}')">Play</button>
+  //                           </div>
+  //                       </div>`);
+  //       });
+
+  //       categoryElement.find(".games-container").empty().append(gameElements);
+  //     });
+  //   });
 }
 
 function appLauncher() {
@@ -85,11 +107,20 @@ function appLauncher() {
     });
 }
 
+function jsChangeLogPage() {
+  fetch("changelog.md")
+    .then((response) => response.text())
+    .then((textString) => {
+      document.getElementById("content").innerHTML = marked.parse(textString);
+    });
+}
+
 function init() {
   feather.replace();
   if ($("#page-apps").length) jsAppsPage();
   if ($("#page-applaunch").length) appLauncher();
   if ($("#page-settings").length) jsSettingsPage();
+  if ($("#page-changes").length) jsChangeLogPage();
 
   if (mobile) {
     $("nav *")

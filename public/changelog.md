@@ -48,4 +48,9 @@ Uh update stuff, yeah.
   - Mobile Ui is still ~~fucked~~
 
 ## Quick Patch 940AJ26
-  - Added Chnage Log & Fixed icons not rendering
+  - Added Change Log & Fixed icons not rendering
+
+## Beta 0.72 
+  - Removed text from Icons on mobile for easier viewing
+  - Fixed changelog not showing up
+  - Made it where apps can't be played on mobile due to _Issues_
