@@ -1,27 +1,7 @@
 import { marked } from "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js";
 
-let ask = (question, callback) => {
-  // Create the modal elements
-  var $modal = $('<div id="customConfirm" class="modal"></div>');
-  var $modalContent = $('<div class="modal-content"></div>');
-  var $p = $("<p></p>").text(question);
-  var $yesButton = $('<button id="yesButton">Okay</button>');
 
-  // Assemble the modal
-  $modalContent.append($p, $yesButton);
-  $modal.append($modalContent);
-  $("body").append($modal);
 
-  // Show the modal
-  $modal.css({ left: 0, top: 0 });
-  $modal.fadeIn();
-
-  // Button event handlers
-  $yesButton.click(function () {
-    $modal.fadeOut();
-    callback(true);
-  });
-};
 
 var mobile = /iphone|ipod|android|blackberry|mini|windows\sce|palm/i.test(
   navigator.userAgent.toLowerCase()
@@ -77,44 +57,31 @@ function jsSettingsPage() {
 }
 
 function jsAppsPage() {
+  
+
   if (mobile) {
-    $(".applist").empty().append("Apps are cuurent only supported Desktop.");
-    return;
+    $("main").empty().append("Apps are cuurent only supported Desktop.");
+    return ;
   }
-  // fetch("/js/apps.json")
-  //   .then((response) => response.json())
-  //   .then((games) => {
-  //     const gamesByCategory = games.reduce((acc, game) => {
-  //       if (!acc[game.catg]) {
-  //         acc[game.catg] = [];
-  //       }
-  //       acc[game.catg].push(game);
-  //       return acc;
-  //     }, {});
-
-  //     Object.keys(gamesByCategory).forEach((catg) => {
-  //       let categoryElement = $(`.applist .category-${catg}`);
-  //       if (categoryElement.length === 0) {
-  //         categoryElement = $(`<fieldset class="category category-${catg}">
-  //                                       <legend>${catg}</legend>
-  //                                       <div class="games-container"></div>
-  //                                   </fieldset>`);
-  //         $(".applist").append(categoryElement);
-  //       }
-
-  //       const gameElements = gamesByCategory[catg].map((game) => {
-  //         return $(`<div class="gameElement">
-  //                           <img src="${game.icon}" class="gameIcon">
-  //                           <div class="gameOpt">
-  //                               <div class="gameName">${game.name}</div>
-  //                               <button class="gamePlay" onclick="swup.navigate('/app?id=${game.id}')">Play</button>
-  //                           </div>
-  //                       </div>`);
-  //       });
-
-  //       categoryElement.find(".games-container").empty().append(gameElements);
-  //     });
-  //   });
+  fetch("/js/apps.json")
+    .then((response) => response.json())
+    .then((games) => {
+      games.forEach((game) => {
+        console.log(game)
+        var gameElement = $("<div></div>").addClass("gameElement");
+        var gameIcon = $("<img>").attr("src", game.icon).addClass("gameIcon");
+        gameElement.append(gameIcon);
+        var gameOpt = $("<div></div>").addClass("gameOpt");
+        var gameName = $("<div></div>").addClass("gameName").text(game.name);
+        var gamePlay = $("<button>Play Game</button>").addClass("gamePlay");
+        $(gamePlay).on("click", function () {
+          swup.navigate(`/app?id=${game.id}`);
+        });
+        gameOpt.append(gameName).append(gamePlay);
+        gameElement.append(gameOpt);
+        $(".gamelist").append(gameElement);
+      });
+    });
 }
 
 function appLauncher() {
@@ -139,36 +106,25 @@ function jsChangeLogPage() {
 }
 
 function init() {
-  let deferredPrompt;
-
-  const installBtn = document.querySelector("#installBtn");
-
-  window.addEventListener("beforeinstallprompt", (e) => {
-    // Prevent Chrome 67 and earlier from automatically showing the prompt
-    e.preventDefault();
-    // Stash the event so it can be triggered later.
-    deferredPrompt = e;
-    // Update UI notify the user they can add to home screen
-
-  });
-
-  installBtn.addEventListener("click", (e) => {
-    // hide our user interface that shows our A2HS button
-    installBtn.style.display = "none";
-    // Show the prompt
-    deferredPrompt.prompt();
-    // Wait for the user to respond to the prompt
-    deferredPrompt.userChoice.then((choiceResult) => {
-      if (choiceResult.outcome === "accepted") {
-        console.log("User accepted the A2HS prompt");
-      } else {
-        console.log("User dismissed the A2HS prompt");
-      }
-      deferredPrompt = null;
-    });
-  });
-
   feather.replace();
+  if ($("#page-home").length) {
+    let deferredPrompt;
+
+    const installBtn = document.querySelector("#installBtn");
+
+    window.addEventListener("beforeinstallprompt", (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+    });
+
+    installBtn.addEventListener("click", (e) => {
+      installBtn.style.display = "none";
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then(() => {
+        deferredPrompt = null;
+      });
+    });
+  }
   if ($("#page-apps").length) jsAppsPage();
   if ($("#page-applaunch").length) appLauncher();
   if ($("#page-settings").length) jsSettingsPage();

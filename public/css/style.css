@@ -85,16 +85,6 @@ small {
   font-size: 0.75rem;
 }
 
-/* Application List Style */
-.applist {
-  width: calc(100% - 65px);
-  margin: 0 auto;
-  display: grid;
-  gap: 15px;
-  grid-auto-flow: row dense;
-  text-align: left;
-}
-
 /* Game Element Style */
 .game-new,
 .gameElement,
@@ -106,7 +96,7 @@ small {
 
 .game-new {
   margin-top: 10px;
-  height: 40%;
+  width: 65%;
   aspect-ratio: 24 / 8;
   background: url("/pngs/backgrounds/sunset.jpg");
   box-shadow: 0px 0px 0px 5px rgba(255, 255, 255, 0.2) inset;
@@ -137,28 +127,24 @@ small {
   padding: 0.5rem;
 }
 
-.games-container {
-  display: grid;
-  grid-template-columns: repeat(1fr, 2);
-  grid-template-rows: repeat(1fr, 3);
-}
-
 .gameElement {
-  width: 20vw;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  overflow: hidden;
+  height: 10rem;
   aspect-ratio: 16 / 9;
-  min-width: 250px;
-  max-width: 325px;
+
+  text-align: center;
+  width: auto;
+  border-radius: 12px;
+  position: relative;
 }
 
 .gameElement img {
   width: 100%;
+  height: 100%;
   position: absolute;
+  left: 0;
   z-index: -2;
-  background-size: fit;
+  background-size: cover;
+  border-radius: 14px;
 }
 
 .gameElement .gameOpt {
@@ -166,9 +152,19 @@ small {
   background: rgba(0, 0, 0, 0.6);
   color: white;
   padding: 2.5%;
+  position: absolute;
   bottom: 0;
   display: flex;
   justify-content: space-between;
+}
+
+.gamelist {
+  width: 85%;
+  margin: 0 auto;
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
 }
 
 /* Misc Styles */
