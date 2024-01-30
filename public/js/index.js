@@ -1,5 +1,28 @@
 import { marked } from "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js";
 
+let ask = (question, callback) => {
+  // Create the modal elements
+  var $modal = $('<div id="customConfirm" class="modal"></div>');
+  var $modalContent = $('<div class="modal-content"></div>');
+  var $p = $("<p></p>").text(question);
+  var $yesButton = $('<button id="yesButton">Okay</button>');
+
+  // Assemble the modal
+  $modalContent.append($p, $yesButton);
+  $modal.append($modalContent);
+  $("body").append($modal);
+
+  // Show the modal
+  $modal.css({ left: 0, top: 0 });
+  $modal.fadeIn();
+
+  // Button event handlers
+  $yesButton.click(function () {
+    $modal.fadeOut();
+    callback(true);
+  });
+};
+
 var mobile = /iphone|ipod|android|blackberry|mini|windows\sce|palm/i.test(
   navigator.userAgent.toLowerCase()
 );
@@ -126,7 +149,7 @@ function init() {
     // Stash the event so it can be triggered later.
     deferredPrompt = e;
     // Update UI notify the user they can add to home screen
-    installBtn.style.display = "block";
+
   });
 
   installBtn.addEventListener("click", (e) => {
