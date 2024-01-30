@@ -5,13 +5,13 @@
     {
       "purpose": "maskable",
       "sizes": "512x512",
-      "src": "icon512_maskable.png",
+      "src": "icon_maskable.png",
       "type": "image/png"
     },
     {
       "purpose": "any",
       "sizes": "512x512",
-      "src": "icon512_rounded.png",
+      "src": "icon_rounded.png",
       "type": "image/png"
     }
   ],
@@ -19,7 +19,7 @@
   "display": "standalone",
   "dir": "auto",
   "lang": "en-US",
-  "name": "Flow Space App",
+  "name": "Flowspace",
   "short_name": "Flowspace",
   "start_url": "/",
   "scope": "/"
