@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <script src="https://unpkg.com/feather-icons"></script>
@@ -6,6 +6,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="apple-touch-icon" href="/icon_512_rounded.png" />
+    <link rel="manifest" href="manifest.json" />
     <title>Home</title>
   </head>
   <body>
@@ -33,10 +35,10 @@
     </nav>
     <main id="swup" class="transition-main">
       <div id="headbox">
-        <h3 id="title">Flowspace is finally in Beta!!!</h3>
-        <p id="description">Flowspace, finally here. c:</p>
-        <a id="learnmore" href="/changelog"
-          >Learn what was changed this update <i data-feather="arrow-up-right"></i
+        <h3 id="title">Flowspace has an app!</h3>
+        <p id="description">YIPPIE!!</p>
+        <a id="learnmore" href=""
+          >Click here to install it!<i data-feather="arrow-up-right"></i
         ></a>
       </div>
       <div id="recentApps">
@@ -50,8 +52,15 @@
     <script>
       const swup = new Swup();
     </script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+          navigator.serviceWorker.register("/sw.js");
+        });
+      }
+    </script>
     <script src="js/jquery.js"></script>
-    <script src="js/index.js" type="module" crossOrigin="anonymous"></script>
+    <script src="js/index.js" type="module" crossorigin="anonymous"></script>
     <script>
       feather.replace();
     </script>

@@ -1,5 +1,5 @@
 var mobile = /iphone|ipod|android|blackberry|mini|windows\sce|palm/i.test(
-  navigator.userAgent.toLowerCase()
+  navigator.userAgent.toLowerCase(),
 );
 function refreshPageTheme() {
   const theme = window.localStorage.getItem("theme");
@@ -18,7 +18,7 @@ $(document).ready(function () {
         $("#user").html(`<img src="${data.picture}"><p>${data.name}</p>`);
         window.localStorage.setItem(
           "userid",
-          data.id ? JSON.stringify(data.id) : "notLoggedIn"
+          data.id ? JSON.stringify(data.id) : "notLoggedIn",
         );
       },
       error: function () {
@@ -54,7 +54,7 @@ function jsSettingsPage() {
 function jsAppsPage() {
   if (mobile) {
     $(".applist").empty().append("Apps are cuurent only supported Desktop.");
-    return
+    return;
   }
   fetch("/js/apps.json")
     .then((response) => response.json())
@@ -86,6 +86,33 @@ function appLauncher() {
 }
 
 function init() {
+  const installBtn = document.querySelector("#learnmore");
+
+  window.addEventListener("beforeinstallprompt", (e) => {
+    // Prevent Chrome 67 and earlier from automatically showing the prompt
+    e.preventDefault();
+    // Stash the event so it can be triggered later.
+    deferredPrompt = e;
+    // Update UI notify the user they can add to home screen
+    installBtn.style.display = "inline-block";
+  });
+
+  installBtn.addEventListener("click", (e) => {
+    // hide our user interface that shows our A2HS button
+    installBtn.style.display = "none";
+    // Show the prompt
+    deferredPrompt.prompt();
+    // Wait for the user to respond to the prompt
+    deferredPrompt.userChoice.then((choiceResult) => {
+      if (choiceResult.outcome === "accepted") {
+        console.log("User accepted the A2HS prompt");
+      } else {
+        console.log("User dismissed the A2HS prompt");
+      }
+      deferredPrompt = null;
+    });
+  });
+  
   feather.replace();
   if ($("#page-apps").length) jsAppsPage();
   if ($("#page-applaunch").length) appLauncher();
@@ -116,7 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (checkForGoGuardian()) {
       if (
         confirm(
-          "It seems you have GoGuardian installed. Would you like to enter hidden mode?"
+          "It seems you have GoGuardian installed. Would you like to enter hidden mode?",
         )
       ) {
         var win = window.open("", "_blank");
@@ -138,5 +165,5 @@ console.warn(
     "- Damage to your computer or device\n" +
     "- Loss of data\n" +
     "- Exposure to harmful content\n" +
-    "Stay safe online!"
+    "Stay safe online!",
 );
