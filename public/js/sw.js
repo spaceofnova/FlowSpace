@@ -9,16 +9,15 @@ const filesToCache = [
   "/css/style.css",
   "/index.html",
   "/manifest.json",
-  "/maskable_icon.png",
-  "/icon_512.png",
-  "/favicon.ico",
+  "/icon_512_rounded.png",
+  "/icon_512_maskable.png",
   "/js/index.js",
   "/js/jquery.js"
 ];
 
 //IMPORTANT this needs to change eveytime you make changes ANY file of the website, then reload the browser
 //You can enable skip cache for netwoek in the netwoek panel in chrome dev tools
-const staticCacheName = "sampe-v13";
+const staticCacheName = "sampe-v14";
 
 //Setting up precaching
 self.addEventListener("install", async (event) => {

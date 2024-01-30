@@ -42,9 +42,9 @@
       <div id="headbox">
         <h3 id="title">Flowspace has an app!</h3>
         <p id="description">YIPPIE!!</p>
-        <a id="learnmore" href=""
-          >Click here to install it!<i data-feather="arrow-up-right"></i
-        ></a>
+        <a id="learnmore" href="">
+          <button id="installBtn">Install It!</button>
+        </a>
       </div>
       <div id="recentApps">
         <h2>Recent:</h2>
@@ -53,16 +53,16 @@
       </div>
       <noscript>Javascript is required to use this website.</noscript>
     </main>
-    <script src="https://unpkg.com/swup@4"></script>
-    <script>
-      const swup = new Swup();
-    </script>
     <script>
       if ("serviceWorker" in navigator) {
         window.addEventListener("load", function () {
-          navigator.serviceWorker.register("/sw.js");
+          navigator.serviceWorker.register("/js/sw.js");
         });
       }
+    </script>
+    <script src="https://unpkg.com/swup@4"></script>
+    <script>
+      const swup = new Swup();
     </script>
     <script src="js/jquery.js"></script>
     <script src="js/index.js" type="module" crossorigin="anonymous"></script>

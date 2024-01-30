@@ -409,7 +409,7 @@ html.is-leaving .transition-main {
     flex-direction: column;
     place-items: center;
     text-align: center;
-    overflow-y: scroll;
+    overflow-y: auto;
   }
 
   #headbox {
