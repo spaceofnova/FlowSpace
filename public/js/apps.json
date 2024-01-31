@@ -24,5 +24,13 @@
     "catg":"FNF",
     "icon":"/pngs/fnf.png",
     "url":"/pages/fnf/index.html"
+  },
+  {
+    "id": "8YV1O6xpklFoPBoV",
+    "name":"2048",
+    "icon":"/pngs/2048.jpg",
+    "url":"https://novaspaceabc.replit.app/2048/index.html",
+    "ratio": "1 / 1",
+    "display":"none"
   }
 ]

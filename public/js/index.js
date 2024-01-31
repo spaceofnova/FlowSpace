@@ -1,8 +1,7 @@
 import { marked } from "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js";
+import { createNav } from "./functions.js";
 
-var mobile = /iphone|ipod|android|blackberry|mini|windows\sce|palm/i.test(
-  navigator.userAgent.toLowerCase()
-);
+
 function refreshPageTheme() {
   const theme = window.localStorage.getItem("theme");
   document.documentElement.setAttribute("data-theme", theme);
@@ -54,10 +53,6 @@ function jsSettingsPage() {
 }
 
 function jsAppsPage() {
-  if (mobile) {
-    $("main").empty().append("Apps are cuurent only supported Desktop.");
-    return;
-  }
   fetch("/js/apps.json")
     .then((response) => response.json())
     .then((games) => {
@@ -72,9 +67,10 @@ function jsAppsPage() {
         $(gamePlay).on("click", function () {
           swup.navigate(`/app?id=${game.id}`);
         });
+
         gameOpt.append(gameName).append(gamePlay);
         gameElement.append(gameOpt);
-        $(".gamelist").append(gameElement);
+        if (game.display != "none") $(".gamelist").append(gameElement);
       });
     });
 }
@@ -88,6 +84,9 @@ function appLauncher() {
       if (selectedGame) {
         $("#appTitle").text(selectedGame.name);
         $("#appFrame").attr("src", selectedGame.url);
+        $(".app").css({ "aspect-ratio": selectedGame.ratio });
+        $(".app").focus();
+        $("#appFrame").focus();
       }
     });
 }
@@ -130,14 +129,6 @@ function jsHomePage() {
 }
 
 function init() {
-  if (mobile) {
-    $("nav *")
-      .contents()
-      .filter(function () {
-        return this.nodeType === Node.TEXT_NODE;
-      })
-      .remove();
-  }
   if ($("#page-apps").length) jsAppsPage();
   if ($("#page-applaunch").length) appLauncher();
   if ($("#page-settings").length) jsSettingsPage();
@@ -185,3 +176,5 @@ console.warn(
     "- Exposure to harmful content\n" +
     "Stay safe online!"
 );
+
+createNav();

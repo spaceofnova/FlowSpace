@@ -98,8 +98,9 @@ small {
   margin-top: 10px;
   width: 65%;
   aspect-ratio: 24 / 8;
-  background: url("/pngs/backgrounds/sunset.jpg");
-  box-shadow: 0px 0px 0px 5px rgba(255, 255, 255, 0.2) inset;
+  background: url("/pngs/2048.jpg") center center;
+  background-size: cover;
+  box-shadow: 0px 0px 0px 5px rgba(0, 0, 0, 0.2) inset;
 }
 
 .game-new::after,

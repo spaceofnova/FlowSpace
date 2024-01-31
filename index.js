@@ -30,6 +30,10 @@ app.get("/changelog", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "pages/changes.html"));
 });
 
+app.get("/addons", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "pages/addons.html"));
+});
+
 // Auth0 configuration
 const { auth } = require("express-openid-connect");
 

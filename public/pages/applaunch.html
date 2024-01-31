@@ -9,35 +9,13 @@
     <title>Slope</title>
   </head>
   <body data-theme="">
-    <nav>
-      <button id="user">
-        <i data-feather="log-in"></i>
-        Login
-      </button>
-      <button onclick="swup.navigate('/');">
-        <i data-feather="home"></i>
-        Home
-      </button>
-      <button onclick="swup.navigate('/apps');">
-        <i data-feather="layers"></i>
-        Apps
-      </button>
-      <button onclick="swup.navigate('/about');">
-        <i data-feather="help-circle"></i>
-        About
-      </button>
-      <button class="bottom" onclick="swup.navigate('/settings');">
-        <i data-feather="sliders"></i>
-        Settings
-      </button>
-    </nav>
     <main id="swup" class="transition-main">
       <div id="page-applaunch" class="blank"></div>
       <a
         style="position: fixed; top: 10px; left: 20px"
         id="appback"
         href="/apps"
-        ><i class="fa-solid fa-arrow-left"></i> Back to Apps page</a
+        ><i data-feather="arrow-left"></i> </a
       >
       <div class="app">
         <p id="appTitle">Loading game..</p>
