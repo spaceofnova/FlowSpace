@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>User Guide</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,minimum-scale=1">
+		<meta name="robots" content="noindex, nofollow">
+		<link href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAqFBMVEUAAAAzQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU+vbZcxAAAAN3RSTlMAAQIDBAUGCAsOEBESFhccHR8gJzM3Pk1OUFRmbXeCg4uMjpSjpqiwtLW3usDO09fZ2uDm6O/9IUR6cgAAAH1JREFUGBltwdUWglAARcGNCNjY2B1YWOD5/z/T68L75AwfgawSxkzZxthKRYxEEYanAw0glDWoLYFYSeAbsarDCEi1cAw3fXKqQF3W1H8Ac1md7gS4ynJXbWjJ2jmZA3tZ/eYauCn3OhbGPeAc8uPefaB8kTXiy/NzBf55A27BHFFEBO8ZAAAAAElFTkSuQmCC" rel="icon" type="image/x-icon">
+		<style>*{box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,"segoe ui",roboto,oxygen,ubuntu,cantarell,"fira sans","droid sans","helvetica neue",Arial,sans-serif;font-size:16px;line-height:24px}body,html{padding:0;margin:0}body{background-color:#f1f3f7}.content{width:800px;background-color:#fff;margin:25px auto 25px auto;padding:25px;box-shadow:0 0 5px rgba(0,0,0,.2)}h2{font-size:18px;color:#495362;padding:15px 0;border-top:1px solid #f5f7f9;border-bottom:1px solid #f5f7f9}h1{margin:0;font-size:20px;color:#495362;padding:15px 0;text-align:center}h2{margin:30px 0 0 0}li{padding:0 0 6px 0}li span{color:red;font-weight:600}li i{color:#37a269}a{color:#006edf;text-decoration:none}a:hover{color:#005bb8}code{display:block;width:100%;border-radius:5px;font-family:Consolas,Monaco,"andale mono","ubuntu mono",monospace;padding:15px;background-color:#f3f4f7;font-size:14px}@media screen and (max-width:800px){.content{width:95%}}</style>
+	</head>
+	<body>
+    	<div class="content">
+
+			<h1>User Guide</h1>
+
+			<h2>Thank you for purchasing from CodeShack!</h2>
+			<p>Your support will help keep our website up and running, and will help us provide you with more quality content!</p>
+			<p>If you have any issues, don't hesitate to contact us via our <a href="https://codeshack.io" target="_blank">website</a> or directly to our email at <a href="mailto:support@codeshack.io" target="_top">support@codeshack.io</a>.</p>
+			<p>You can view more information about this package <a href="https://codeshack.io/package/nodejs/advanced-secure-login-registration-system/" target="_blank">here</a> (FAQs, updates, etc).</p>
+
+			<h2>Requirements</h2>
+			<p>I recommend you read the following tutorials on our website (if you haven't already):</p>
+			<ol>
+				<li><a href="https://codeshack.io/basic-login-system-nodejs-express-mysql/" target="_blank">https://codeshack.io/basic-login-system-nodejs-express-mysql/</a></li>
+			</ol>
+			<p>You will need the following:</p>
+			<ol>
+				<li><a href="https://nodejs.org/" target="_blank">Node.js</a></li>
+				<li><a href="https://dev.mysql.com/downloads/mysql/" target="_blank">MySQL Server</a> 5.6 or higher - Make sure the port is 3306 (default).</li>
+				<li><a href="https://www.mysql.com/products/workbench/" target="_blank">MySQL Workbench</a></li>
+				<li>A code editor; You can use notepad to edit the Python files, but I don't recommend it. Instead, download one of the following: <a href="https://notepad-plus-plus.org/downloads/" target="_blank">Notepad++</a>, <a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a>, or <a href="https://atom.io/" target="_blank">Atom</a>.</li>
+			</ol>
+
+			<h2>Instructions</h2>
+			<p>Open the command line as administrator and navigate to your advanced directory (cd c:\advanced_package_source\, etc.)</p>
+			<p>Install the below Node.js packages via command line.</p>
+			<ol>
+				<li>npm install -g nodemon --save</li>
+				<li>npm install nunjucks --save</li>
+				<li>npm install express --save</li>
+				<li>npm install express-session --save</li>
+				<li>npm install mysql --save</li>
+				<li>npm install nodemailer --save</li>
+				<li>npm install uuid --save</li>
+				<li>npm install node-fetch@2 --save</li>
+			</ol>
+
+			<p>Execute the "nodelogin.sql" file in MySQL Workbench. The SQL file includes a member and admin account that you can use for testing purposes.</p>
+
+			<p>If you're using Windows, you can click the "Start_Server_(Windows).bat" file that is included. If not, execute the following in command line: nodemon --use_strict main.js</p>
+
+			<p>If you've successfully started the server, you can navigate to <b>http://localhost:3000/</b> in your browser. It should take you to the login form.</p>
+
+			<h2>How to Access the Admin Panel</h2>
+			<p>Log-in with the following credentials:</p>
+			<p>
+				<b>Username:</b> admin<br>
+				<b>Password:</b> admin
+			</p>
+			<p>And then click the "Admin" link located in the top navigation bar, which will redirect you to the admin panel.</p>
+
+			<h2>FAQs</h2>
+			<ol>
+				<li>Why am I not receiving the activation email?<br><i>You need a working SMTP mail server and make sure your firewall is not blocking ports 25, 587, 465, 110, etc. This shouldn't be a problem on most hosting providers or Linux servers (built-in email server).</i></li>
+				<li>Why am I receiving a MySQL error?<br><i>Make sure you update the MySQL details in the "main.js" file. You might need to change the hostname if yours is different and/or port number, and make sure you've executed the correct SQL file in MySQL Workbench.</i></li>
+				<li>How do I download the zip file again if I've deleted it?<br><i>You can request a new receipt email <a href="https://codeshack.io/receiptresend/" target="_blank">here</a>.</i></li>
+			</ol>
+
+		</div>
+    </body>
+</html>

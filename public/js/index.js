@@ -100,32 +100,35 @@ function jsChangeLogPage() {
 }
 
 function jsHomePage() {
-  $.getJSON("https://kdata.flowspace.app/flowspace.json", function (data) {
-    if (data.header && data.header.title && data.header.desc) {
-      $("#title").text(data.header.title);
-      $("#desc").text(data.header.desc);
-    } else {
-      console.error("Invalid data structure in JSON");
-    }
-  }).fail(function () {
-    console.error("Error fetching or parsing JSON");
-  });
-  let deferredPrompt;
+  // $.getJSON("https://kdata.flowspace.app/flowspace.json", function (data) {
+  //   if (data.header && data.header.title && data.header.desc) {
+  //     $("#title").text(data.header.title);
+  //     $("#desc").text(data.header.desc);
+  //   } else {
+  //     console.error("Invalid data structure in JSON");
+  //   }
+  // }).fail(function () {
+  //   console.error("Error fetching or parsing JSON");
+  // });
+  // let deferredPrompt;
 
-  const installBtn = document.querySelector("#installBtn");
+  // const installBtn = document.querySelector("#installBtn");
 
-  window.addEventListener("beforeinstallprompt", (e) => {
-    e.preventDefault();
-    deferredPrompt = e;
-  });
+  // window.addEventListener("beforeinstallprompt", (e) => {
+  //   e.preventDefault();
+  //   deferredPrompt = e;
+  // });
 
-  installBtn.addEventListener("click", (e) => {
-    installBtn.style.display = "none";
-    deferredPrompt.prompt();
-    deferredPrompt.userChoice.then(() => {
-      deferredPrompt = null;
-    });
-  });
+  // installBtn.addEventListener("click", (e) => {
+  //   installBtn.style.display = "none";
+  //   deferredPrompt.prompt();
+  //   deferredPrompt.userChoice.then(() => {
+  //     deferredPrompt = null;
+  //   });
+  // });
+
+  document.querySelector("#headbox #title").innerText = "Welcome to Flowspace!"
+  // document.querySelector("#headbox #desc").innerText = "The one and done place for your games!"
 }
 
 function init() {

@@ -369,7 +369,7 @@ html.is-leaving .transition-main {
 /* Desktop Specific Styles */
 @media (pointer: fine), (pointer: none) {
   :root {
-    --nav-width: 9.515%;
+    --nav-width: 120px;
   }
   body {
     background: var(--background) center center;
