@@ -1,8 +1,5 @@
 import { marked } from "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js";
 
-
-
-
 var mobile = /iphone|ipod|android|blackberry|mini|windows\sce|palm/i.test(
   navigator.userAgent.toLowerCase()
 );
@@ -57,17 +54,15 @@ function jsSettingsPage() {
 }
 
 function jsAppsPage() {
-  
-
   if (mobile) {
     $("main").empty().append("Apps are cuurent only supported Desktop.");
-    return ;
+    return;
   }
   fetch("/js/apps.json")
     .then((response) => response.json())
     .then((games) => {
       games.forEach((game) => {
-        console.log(game)
+        console.log(game);
         var gameElement = $("<div></div>").addClass("gameElement");
         var gameIcon = $("<img>").attr("src", game.icon).addClass("gameIcon");
         gameElement.append(gameIcon);
@@ -105,31 +100,36 @@ function jsChangeLogPage() {
     });
 }
 
+function jsHomePage() {
+  $.getJSON("https://kdata.flowspace.app/flowspace.json", function (data) {
+    if (data.header && data.header.title && data.header.desc) {
+      $("#title").text(data.header.title);
+      $("#desc").text(data.header.desc);
+    } else {
+      console.error("Invalid data structure in JSON");
+    }
+  }).fail(function () {
+    console.error("Error fetching or parsing JSON");
+  });
+  let deferredPrompt;
+
+  const installBtn = document.querySelector("#installBtn");
+
+  window.addEventListener("beforeinstallprompt", (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+  });
+
+  installBtn.addEventListener("click", (e) => {
+    installBtn.style.display = "none";
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then(() => {
+      deferredPrompt = null;
+    });
+  });
+}
+
 function init() {
-  feather.replace();
-  if ($("#page-home").length) {
-    let deferredPrompt;
-
-    const installBtn = document.querySelector("#installBtn");
-
-    window.addEventListener("beforeinstallprompt", (e) => {
-      e.preventDefault();
-      deferredPrompt = e;
-    });
-
-    installBtn.addEventListener("click", (e) => {
-      installBtn.style.display = "none";
-      deferredPrompt.prompt();
-      deferredPrompt.userChoice.then(() => {
-        deferredPrompt = null;
-      });
-    });
-  }
-  if ($("#page-apps").length) jsAppsPage();
-  if ($("#page-applaunch").length) appLauncher();
-  if ($("#page-settings").length) jsSettingsPage();
-  if ($("#page-changes").length) jsChangeLogPage();
-
   if (mobile) {
     $("nav *")
       .contents()
@@ -138,6 +138,12 @@ function init() {
       })
       .remove();
   }
+  if ($("#page-apps").length) jsAppsPage();
+  if ($("#page-applaunch").length) appLauncher();
+  if ($("#page-settings").length) jsSettingsPage();
+  if ($("#page-changes").length) jsChangeLogPage();
+  if ($("#page-home").length) jsHomePage();
+  feather.replace();
 }
 
 document.addEventListener("DOMContentLoaded", init);
